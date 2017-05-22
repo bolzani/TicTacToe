@@ -19,6 +19,7 @@
     return self;
 }
 
+/*! Using the Minmax algorithm, this method analyzes all possible moves and suggests the one with the best possible outcome. It also takes into account the difficulty oh the AI: on Medium difficulty, it correctly suggests the best move on 70% of the cases; on Easy, it just randomly suggests a valid move. */
 - (NSUInteger)bestMoveForGame:(Game *)game {
     
     if ([game isItNewGame]) {
@@ -48,6 +49,7 @@
     return bestMove;
 }
 
+/*! Recursive method tha uses the Minmax algorithm to determine the best possible score. */
 - (int)bestScoreForGame:(Game*)game {
     if (game.currentState != Ongoing) {
         return [self scoreForGame:game];
@@ -79,7 +81,6 @@
     
     return  bestScore;
 }
-
 
 - (int)scoreForGame:(Game*)game {
     if (game.currentState == CrossesWon) {
